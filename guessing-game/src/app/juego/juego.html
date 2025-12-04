@@ -1,0 +1,22 @@
+<div style="margin-top: 1.5rem;">
+  <h2>Ongi Etorri {{ configuracion.nombre }} {{ configuracion.apellido }}.</h2>
+
+  <div *ngIf="!juegoTerminado">
+    <label for="numeroJugador">Introduce tu número:</label>
+    <input
+      type="number"
+      id="numeroJugador"
+      name="numeroJugador"
+      [(ngModel)]="numeroJugador"
+      min="0"
+      [max]="configuracion.rangoMaximo - 1"
+    />
+    <button type="button" (click)="intentar()">Enviar</button>
+
+    <p>Intentos restantes: {{ intentosRestantes }}</p>
+  </div>
+
+  <p *ngIf="mensajeResultado" style="margin-top: 0.5rem;">
+    {{ mensajeResultado }}
+  </p>
+</div>

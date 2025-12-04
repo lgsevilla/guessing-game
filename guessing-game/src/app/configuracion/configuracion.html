@@ -1,0 +1,84 @@
+<h2>Configuración del Juego</h2>
+
+<form>
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="nombre"
+      (ngModelChange)="validarNombre()"
+      [disabled]="bloqueado"
+    />
+    <span [class.error]="!nombreValido && feedbackNombre"
+          [class.success]="nombreValido">
+      {{ feedbackNombre }}
+    </span>
+  </div>
+
+  <div>
+    <label for="apellido">Apellido:</label>
+    <input
+      type="text"
+      id="apellido"
+      name="apellido"
+      [(ngModel)]="apellido"
+      (ngModelChange)="validarApellido()"
+      [disabled]="bloqueado"
+    />
+    <span [class.error]="!apellidoValido && feedbackApellido"
+          [class.success]="apellidoValido">
+      {{ feedbackApellido }}
+    </span>
+  </div>
+
+  <div>
+    <label for="rangoMaximo">Rango máximo (mínimo 4):</label>
+    <input
+      type="number"
+      id="rangoMaximo"
+      name="rangoMaximo"
+      [(ngModel)]="rangoMaximo"
+      (ngModelChange)="validarRango()"
+      min="0"
+      [disabled]="bloqueado"
+    />
+    <span [class.error]="!rangoValido && feedbackRango"
+          [class.success]="rangoValido">
+      {{ feedbackRango }}
+    </span>
+  </div>
+
+  <div>
+    <label for="intentos">Número de intentos:</label>
+    <input
+      type="number"
+      id="intentos"
+      name="intentos"
+      [(ngModel)]="numeroDeIntentos"
+      (ngModelChange)="validarIntentos()"
+      min="1"
+      [disabled]="bloqueado"
+    />
+    <span [class.error]="!intentosValidos && feedbackIntentos"
+          [class.success]="intentosValidos">
+      {{ feedbackIntentos }}
+    </span>
+  </div>
+
+  <button
+    type="button"
+    [disabled]="!isFormValid || bloqueado"
+    (click)="recogerDatos()"
+  >
+    Recoger datos
+  </button>
+</form>
+
+<div *ngIf="configuracion as cfg" style="margin-top: 1rem;">
+  <p><strong>Configuración guardada correctamente.</strong></p>
+  <p>Jugador: {{ cfg.nombre }} {{ cfg.apellido }}</p>
+  <p>Rango máximo: {{ cfg.rangoMaximo }}</p>
+  <p>Número de intentos: {{ cfg.numeroDeIntentos }}</p>
+</div>
