@@ -39,7 +39,7 @@ export class ConfiguracionComponent {
       this.feedbackNombre = 'El nombre no puede estar vacío.';
     } else {
       this.nombreValido = true;
-      this.feedbackNombre = 'OK';
+      this.feedbackNombre = '✅';
     }
   }
 
@@ -49,7 +49,7 @@ export class ConfiguracionComponent {
       this.feedbackApellido = 'El apellido no puede estar vacío.';
     } else {
       this.apellidoValido = true;
-      this.feedbackApellido = 'OK';
+      this.feedbackApellido = '✅';
     }
   }
 
@@ -62,7 +62,7 @@ export class ConfiguracionComponent {
       this.feedbackRango = 'El rango mínimo es 4.';
     } else {
       this.rangoValido = true;
-      this.feedbackRango = 'OK';
+      this.feedbackRango = '✅';
     }
   }
 
@@ -75,7 +75,7 @@ export class ConfiguracionComponent {
       this.feedbackIntentos = 'Hace falta al menos 1 intento.';
     } else {
       this.intentosValidos = true;
-      this.feedbackIntentos = 'OK';
+      this.feedbackIntentos = '✅';
     }
   }
 

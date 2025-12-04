@@ -39,28 +39,28 @@ export class JuegoComponent {
     this.intentosRestantes--;
 
     if (intento === objetivo) {
-      this.mensajeResultado = 'Has Ganado 🎉';
+      this.mensajeResultado = 'Has Ganado! Winner, Winner, Chicken Dinner!';
       this.juegoTerminado = true;
       return;
     }
 
     if (intento > objetivo) {
-      this.mensajeResultado = 'Te pasaste';
+      this.mensajeResultado = 'Te pasaste!';
     } else {
       const diff = objetivo - intento;
 
       if (diff === 1) {
-        this.mensajeResultado = 'Caliente';
+        this.mensajeResultado = 'Caliente!';
       } else if (diff === 2) {
-        this.mensajeResultado = 'Templado';
+        this.mensajeResultado = 'Templado!';
       } else {
-        this.mensajeResultado = 'Frío';
+        this.mensajeResultado = 'Frío!';
       }
     }
 
     if (this.intentosRestantes <= 0) {
       this.juegoTerminado = true;
-      this.mensajeResultado += ' | No te quedan más intentos.';
+      this.mensajeResultado += ' | No te quedan más intentos! El número era ' + objetivo + '.';
     }
   }
 }
